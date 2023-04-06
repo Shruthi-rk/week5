@@ -1,0 +1,33 @@
+import java.util.*;
+class Pro1
+  {
+    public static void main(String args[])
+    {
+      Scanner s=new Scanner(System.in);
+      System.out.println("Enter the array length");
+      int len=s.nextInt();
+      int a[]=new int[len];
+      for(int i=0;i<len;i++)
+      {
+          System.out.println("Enter the array element"+(i+1));
+          a[i]=s.nextInt();
+      }
+      int count=0;
+      System.out.println("Enter the number to divide :");
+      int k=s.nextInt();//3
+      System.out.println("The pairs are");
+      for(int i=0;i<len;i++)// 1 2 3 4 5
+      {
+          for(int j=i+1;j<len;j++)
+            {
+              if((a[i]+a[j])%k==0)//1+2=3%3==0
+              {
+                count++;//1
+                System.out.println("["+a[i] +","+a[j] +"]");
+              }
+            }
+      }
+      System.out.println();
+      System.out.println("Total number of pairs :"+count);
+    }
+  }
