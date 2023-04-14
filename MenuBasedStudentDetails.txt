@@ -110,13 +110,14 @@ public class App5 {
     }
     public void getDetails() 
     {
+             int opt=0;
              do
                {
              System.out.println("Choose the option");
              System.out.println("1.Print specific details");
              System.out.println("2.Delete specific details");
              System.out.println("3.Update the details");
-             int opt=s.nextInt();
+             opt=s.nextInt();
              switch(opt)
                {
                  case 1:prinSpec();
