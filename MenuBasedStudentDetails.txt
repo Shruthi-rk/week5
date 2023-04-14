@@ -1,0 +1,142 @@
+/*Menu based including deleting specific based on marks and name,printing specific and updating.*/
+import java.util.Scanner;
+public class App5 {
+    String name, collegeName;
+    long mobile;
+    int marks;
+    int count=0;
+    Student stds[]=new Student[5];
+    Scanner s=new Scanner(System.in);
+    public void setDetails() {
+        System.out.println("Enter the total number of student details");
+        int n=s.nextInt();
+        stds=new Student[n];
+        for(int i=0;i<n;i++) 
+        {
+        Student std=new Student(); 
+        System.out.println("Enter name");
+        std.setName(s.next());
+        System.out.println("Enter marks");
+        std.setMarks(s.nextInt());
+        System.out.println("Enter Mobile");
+        std.setMobile(s.nextLong());
+        System.out.println("Enter college name");
+        std.setCollegeName(s.next());
+        stds[i]=std;
+        }
+    }
+    public void prinSpec()
+    {
+    System.out.println("Enter the name which has to be printed");
+    String t=s.next();
+             for(int i=0;i<stds.length;i++) 
+             {
+                 if((stds[i].getName()).equals(t))
+                 {
+                 System.out.println("Student "+(i+1)+" Details");
+                 System.out.println("name: "+stds[i].getName());
+                 System.out.println("Mobile: "+stds[i].getMobile());
+                 System.out.println("Marks: "+stds[i].getMarks());
+                 System.out.println("College name: "+stds[i].getCollegeName());
+                 System.out.println();
+                 }
+                else
+                 {
+                   count++;
+                 }
+             }
+          if(count==stds.length)
+          {
+            System.out.println("Search valid name");
+          }
+    }
+    public void delSpec()
+    {
+     System.out.println("Enter the name which has to be deleted");
+     String t=s.next();
+             for(int i=0;i<stds.length;i++) 
+             {
+                 if((stds[i].getName()).equals(t))
+                 {
+                   continue;
+                 }
+                 if((stds[i].getName()).contains(t))
+                 {
+                 System.out.println("Student "+(i+1)+" Details");
+                 System.out.println("name: "+stds[i].getName());
+                 System.out.println("Mobile: "+stds[i].getMobile());
+                 System.out.println("Marks: "+stds[i].getMarks());
+                 System.out.println("College name: "+stds[i].getCollegeName());
+                 System.out.println();
+                 }
+                 else
+                 {
+                   count++;
+                 }
+             }
+             if(count!=0)
+             {
+               System.out.println("Enter valid name");
+             }
+    }
+    public void update()
+      {
+       System.out.println("Enter the name to update");
+       String name=s.next();
+       System.out.println("Enter the new mobile number");
+       Long mobile=s.nextLong();
+        for(int i=0;i<stds.length;i++)
+          {
+            if(name.equals(stds[i].getName()))
+            {
+                stds[i].setMobile(mobile);
+            }
+        }
+      }
+   public void prinSpecMark() 
+  {
+             for(int i=0;i<stds.length;i++) 
+             {
+                 if((stds[i].getMarks())>30 && (stds[i].getMarks())<70)
+                 {
+                 System. out.println("Student "+(i+1)+" Details");
+                 System.out.println("name: "+stds[i].getName());
+                 System. out.println("Mobile: "+stds[i].getMobile());
+                 System. out.println("Marks: "+stds[i].getMarks());
+                 System .out.println("College name: "+stds[i].getCollegeName());
+                 System.out.println();
+                 }
+             }
+    }
+    public void getDetails() 
+    {
+             do
+               {
+             System.out.println("Choose the option");
+             System.out.println("1.Print specific details");
+             System.out.println("2.Delete specific details");
+             System.out.println("3.Update the details");
+             int opt=s.nextInt();
+             switch(opt)
+               {
+                 case 1:prinSpec();
+                        break;
+                 case 2:delSpec();
+                        break;
+                 case 3:update();
+                        break;
+                 case 4:prinSpecMark();
+                         break;
+                 default: System.out.println("Enter valid option");
+                        break;
+               }
+               }while(opt!=0)
+    }
+ 
+    public static void main(String[] args) 
+   {
+        App5 obj=new App5();
+        obj.setDetails();
+        obj.getDetails();
+    }
+}
