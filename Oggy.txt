@@ -30,6 +30,7 @@ public class Oggy extends TomJerry
     {
       Oggy obj=new Oggy();
       obj.a1();
+      obj.a2("Tom","Jerry");
       obj.a3();
     }
   }
