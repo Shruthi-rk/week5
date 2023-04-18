@@ -1,0 +1,218 @@
+import java.util.Scanner;
+public class Nature
+  {
+    String parts,color,frag,height;
+    int cost;
+    Plant gloom[];
+    int count=0;
+    Scanner s=new Scanner(System.in);
+    public void setNature()
+    {
+      System.out.print("Enter the number of plant details "+" ");
+      int n=s.nextInt();
+      gloom=new Plant[n];
+      for(int i=0;i<n;i++)
+        {
+          Plant g=new Plant();
+          System.out.println("Enter the flower name(rose,jasmine,lotus) :");
+          g.setParts(s.next());
+          System.out.println("Enter the color of the flower :");
+          g.setColor(s.next());
+          System.out.println("Enter the flower fragrance(good,no,bad) :");
+          g.setFrag(s.next());
+          System.out.println("Enter the plant height(short,tall,medium) :");
+          g.setHeight(s.next());
+          System.out.println("Enter the cost of the plant:");
+          g.setCost(s.nextInt());
+          gloom[i]=g;
+        }
+    }
+    public void smell()
+    {
+      System.out.println("Enter the fragrance of the flower of the plant");
+      String sm=s.next();
+      for(int i=0;i<gloom.length;i++)
+        {
+          if(sm.equals(gloom[i].getFrag()))
+          {
+            System.out.println("Flower name : "+gloom[i].getParts());
+            System.out.println("Flower color : "+gloom[i].getColor());
+            System.out.println("Flower Fragrance : "+gloom[i].getFrag());
+            System.out.println("Plant Height  : "+gloom[i].getHeight());
+            System.out.println("Plant Cost : "+gloom[i].getCost());
+          }
+           else
+          {
+            count++;
+          }
+        }
+        if(count==gloom.length)
+        {
+          System.out.println("Enter valid height");
+        }
+        }
+    public void cost()
+    {
+      for(int i=0;i<gloom.length;i++)
+        {
+          if((gloom[i].getCost())>=100 && (gloom[i].getCost())<=500)
+          {
+           System.out.println("Flower name : "+gloom[i].getParts());
+            System.out.println("Flower color : "+gloom[i].getColor());
+            System.out.println("Flower Fragrance : "+gloom[i].getFrag());
+            System.out.println("Plant Height  : "+gloom[i].getHeight());
+            System.out.println("Plant Cost : "+gloom[i].getCost());
+          }
+        }
+    }
+    public void color()
+    {
+      System.out.println("Enter the color :");
+      String c=s.next();
+      for(int i=0;i<gloom.length;i++)
+        {
+          if((gloom[i].getColor()).equals(c))
+          {
+            System.out.println("Flower name : "+gloom[i].getParts());
+            System.out.println("Flower color : "+gloom[i].getColor());
+            System.out.println("Flower Fragrance : "+gloom[i].getFrag());
+            System.out.println("Plant Height  : "+gloom[i].getHeight());
+            System.out.println("Plant Cost : "+gloom[i].getCost());
+          }
+           else
+          {
+            count++;
+          }
+        }
+        if(count==gloom.length)
+        {
+          System.out.println("Enter valid color");
+        }
+    }
+    public void height()
+    {
+     System.out.println("Enter the height(short,medium,tall) :");
+      String h=s.next();
+       for(int i=0;i<gloom.length;i++)
+        {
+          if((gloom[i].getHeight()).equals(h))
+          {
+            System.out.println("Flower name : "+gloom[i].getParts());
+            System.out.println("Flower color : "+gloom[i].getColor());
+            System.out.println("Flower Fragrance : "+gloom[i].getFrag());
+            System.out.println("Plant Height  : "+gloom[i].getHeight());
+            System.out.println("Plant Cost : "+gloom[i].getCost());
+          }
+          else
+          {
+            count++;
+          }
+        }
+        if(count==gloom.length)
+        {
+          System.out.println("Enter valid height");
+        }
+    }
+    public void deletePlant()
+    {
+      System.out.println("Enter the plant part to be deleted");
+      String p=s.next();
+       for(int i=0;i<gloom.length;i++)
+        {
+          if((gloom[i].getParts()).equals(p))
+          {
+            continue;
+          }
+            System.out.println("Flower name : "+gloom[i].getParts());
+            System.out.println("Flower color : "+gloom[i].getColor());
+            System.out.println("Flower Fragrance : "+gloom[i].getFrag());
+             System.out.println("Plant Height  : "+gloom[i].getHeight());
+            System.out.println("Plant Cost : "+gloom[i].getCost());
+          }
+        }
+    public void updatePlant()
+    {
+      System.out.println("Enter the flower name to updated");
+      String p=s.next();
+      int opt=0;
+      System.out.println("Enter the which has to be updated ");
+      System.out.println("1.Height "+"2.Color "+" "+"3.Fragrance ");
+      String data=s.next();
+      System.out.println("Enter the option number");
+      opt=s.nextInt();
+      for(int i=0;i<gloom.length;i++)
+      {
+      if(p.equals((gloom[i].getParts())))
+      {
+      switch(opt)
+        {
+          case 1: gloom[i].setHeight(data);
+                  break;
+          case 2: gloom[i].setColor(data);
+                  break;
+          case 3:gloom[i].setFrag(data);
+                  break;
+          case 4:{
+                 System.out.println("Enter the cost");
+                 int cost=s.nextInt();
+                 gloom[i].setCost(cost);
+                 break;
+                 }
+          default:System.out.println("Enter valid option ");
+                  break;
+        }
+            System.out.println("Flower name : "+gloom[i].getParts());
+             System.out.println("Flower color : "+gloom[i].getColor());
+            System.out.println("Flower Fragrance : "+gloom[i].getFrag());
+            System.out.println("Plant Height  : "+gloom[i].getHeight());
+            System.out.println("Plant Cost : "+gloom[i].getCost());
+      }
+      }
+    }
+    public void getNature()
+    {
+      int opt=0;
+      do
+        {
+          System.out.println("Choose your option :");
+          System.out.println("1.Print the details of flowers based on smell");
+          System.out.println("2.Print the plants whose price ranges between 100 to 500");
+          System.out.println("3.Print the flower based on color");
+          System.out.println("4.Print the plants whose based on height");
+          System.out.println("0.EXIT");
+          opt=s.nextInt();
+          switch(opt)
+            {
+              case 1:smell();
+                     break;
+              case 2:cost();
+                     break;
+              case 3:color();
+                     break;
+              case 4:height();
+                     break;
+              default: System.out.println("Enter valid option");
+                      break;
+            }
+        }while(opt!=0);
+    }
+    public static void main(String args[])
+     {
+    Scanner s=new Scanner(System.in);
+    Nature obj=new Nature();
+    obj.setNature();
+    obj.getNature();
+    System.out.println("Do you want to delete plant based on Height(true/false) ");
+    boolean input=s.nextBoolean();
+    if(input)
+    {
+    obj.deletePlant();
+    }
+    System.out.println("Do you want to update flower details(true/false) ");
+    boolean in=s.nextBoolean();
+    if(in)
+    {
+    obj.updatePlant();
+    }
+    }
+}
