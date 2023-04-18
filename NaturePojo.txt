@@ -1,0 +1,45 @@
+public class Plant
+  {
+    private String parts,color,frag,height;
+    private int cost;
+    public String getParts()
+    {
+      return parts;
+    }
+    public void setParts(String parts)
+    {
+      this.parts=parts;
+    }
+     public String getColor()
+    {
+      return color;
+    }
+    public void setColor(String color)
+    {
+      this.color=color;
+    }
+     public String getFrag()
+    {
+      return frag;
+    }
+    public void setFrag(String frag)
+    {
+      this.frag=frag;
+    }
+     public String getHeight()
+    {
+      return height;
+    }
+    public void setHeight(String height)
+    {
+      this.height=height;
+    }
+     public int getCost()
+     {
+      return cost;
+    }
+    public void setCost(int cost)
+    {
+      this.cost=cost;
+    }
+  }
