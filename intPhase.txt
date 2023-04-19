@@ -1,0 +1,25 @@
+interface m
+  {
+    public void a();
+  }
+interface n
+  {
+    public void b();
+  }
+public class A implements m,n
+  {
+    public void a()
+    {
+      System.out.println("Hello");
+    }
+    public void b()
+    {
+      System.out.println("Hai");
+    }
+    public static void main(String args[])
+    {
+      A obj=new A();
+      obj.a();
+      obj.b();
+    }
+  }
